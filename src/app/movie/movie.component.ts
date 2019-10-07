@@ -30,15 +30,16 @@ export class MovieComponent implements OnInit {
     })
   }
 
-  onDeleteBeforeYear(aYear:number){
+  onDeleteBeforeYear(){
     this.onGetMovies();
-    let temp = this.moviesDB.filter(element => element.year <= aYear)
+    let temp = this.moviesDB.filter(element => element.year <= this.mYear)
     temp.forEach(element => {
       this.dbService.deleteMovie(element._id).subscribe();
     })
     // temp.forEach(element => {
     //   this.onDeleteMovie(element);
     // })
+    this.resetValues();
     this.onGetMovies();
   }
   //Delete Movie
