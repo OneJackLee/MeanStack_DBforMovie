@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movieAng';
+  section = 0;
+
+  changeSection(sectionId) {
+    this.section = sectionId;
+  }
+
 }

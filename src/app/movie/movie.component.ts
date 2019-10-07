@@ -62,7 +62,9 @@ export class MovieComponent implements OnInit {
     this.onGetMovies();
     let temp = this.moviesDB.filter(element => element.year <= this.mYear)
     temp.forEach(element => {
-      this.dbService.deleteMovie(element._id).subscribe();
+      this.dbService.deleteMovie(element._id).subscribe(result =>{
+        this.onGetMovies();
+      });
     })
     // temp.forEach(element => {
     //   this.onDeleteMovie(element);

@@ -131,7 +131,7 @@
       <th>update</th>
       <th>Movie Title</th>
     </tr>
-    <tr *ngIf = "actorId.length!=0 ">
+    <tr *ngIf = "actorId.length!=0 || movieId.length!=0 ">
       <td>{{actorName}}</td>
       <td><button *ngIf = "actorId.length!= 0 && movieId.length!=0 "type="submit" class="btn btn-primary" (click)="onUpdateMovie()">>></button></td>
       <td>{{movieTitle}}</td>
