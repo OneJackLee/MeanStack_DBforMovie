@@ -86,3 +86,57 @@
   <button type="submit" class="btn btn-primary" (click)="onDeleteBeforeYear()">Delete Movies</button>
 
 </div>
+
+<!-- Section 5: add actor(s) to movie -->
+<div class="section" *ngIf="section==5">
+  <h3>Actor list</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let item of actorsTempDB">
+      <td>{{item.name}}</td>
+      <td>{{item.bYear}}</td>
+      <td><button type="submit" class="btn btn-primary" (click)="onSelectActor(item)">select actor</button></td>
+    </tr>
+  </table>
+
+  
+  <h3>Movie list</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Actor</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let item of moviesDB">
+      <td>{{item.title}}</td>
+      <td>{{item.year}}</td>
+      <td>
+        <ul *ngFor="let actor of item.actors">
+          <li>{{actor.name}}</li>
+        </ul>
+      </td>
+      <td><button type="submit" class="btn btn-primary" (click)="onSelectUpdate(item)">select movie</button></td>
+    </tr>
+  </table>
+
+  <h3>Add actor to movie</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Actor Name</th>
+      <th>update</th>
+      <th>Movie Title</th>
+    </tr>
+    <tr *ngIf = "actorId.length!=0 ">
+      <td>{{actorName}}</td>
+      <td><button *ngIf = "actorId.length!= 0 && movieId.length!=0 "type="submit" class="btn btn-primary" (click)="onUpdateMovie()">>></button></td>
+      <td>{{movieTitle}}</td>
+    </tr>
+  </table>
+
+
+</div>
